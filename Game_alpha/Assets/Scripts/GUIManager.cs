@@ -5,26 +5,48 @@ using UnityEngine.SceneManagement;
 
 public class GUIManager : MonoBehaviour
 {
+
+    public GameObject pauseMenu;  
+    public bool isPaused;
     // Start is called before the first frame update
     void Start()
     {
-        
+        pauseMenu.SetActive(false);
+        isPaused = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(isPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
         
     }
 
-    public void PlayGame()
+    public void PauseGame()
     {
-        SceneManager.LoadScene(1);
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
-    public void CreditScene()
+    public void ResumeGame()
     {
-        SceneManager.LoadScene(2);
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
     }
 
     public void QuitGame()
@@ -35,5 +57,7 @@ public class GUIManager : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
