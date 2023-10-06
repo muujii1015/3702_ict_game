@@ -6,13 +6,15 @@ using UnityEngine.SceneManagement;
 public class GUIManager : MonoBehaviour
 {
 
-    public GameObject pauseMenu;  
+    public GameObject pauseMenu;
+    public GameObject crosshair;
     public bool isPaused;
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
         isPaused = false;
+        crosshair.SetActive(true);
     }
 
     // Update is called once per frame
@@ -40,6 +42,8 @@ public class GUIManager : MonoBehaviour
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        crosshair.SetActive(false);
     }
 
     public void ResumeGame()
@@ -47,6 +51,9 @@ public class GUIManager : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+
+        crosshair.SetActive(true);
+
     }
 
     public void QuitGame()
