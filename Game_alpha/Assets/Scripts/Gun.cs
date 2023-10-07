@@ -39,8 +39,9 @@ public class Gun : MonoBehaviour
     }
 
     void Update()
-    {
-        if(CurrentAmmo ==0 && isReloading == false)
+    {   
+        //Start the Reload Coroutine if one of the conditions is met
+        if((CurrentAmmo ==0 && isReloading == false) || (Input.GetKeyDown(KeyCode.R) && isReloading == false && CurrentAmmo < AmmoCapacity))
         {
             isReloading = true;
             StartCoroutine(Reload());
