@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour
 {
     //Attributes of the gun
     public float damage = 10f;
-    public float range = 100f;
+    public float range = 150f;
     public float FireRate = 15f;
     public int AmmoCapacity = 10;
     private int CurrentAmmo;
