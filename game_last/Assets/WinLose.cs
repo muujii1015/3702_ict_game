@@ -14,7 +14,7 @@ public class WinLose : MonoBehaviour
         {
             Debug.Log("You Win");
 
-            SwitchToScene("Win");
+            SwitchToScene("MainMenu");
             Debug.Log("Scene Load Attempted");
         }
     }
@@ -25,7 +25,7 @@ public class WinLose : MonoBehaviour
         if (!gameEnded)
         {
             Debug.Log("LOSer");
-            SwitchToScene("Lose");
+            SwitchToScene("MainMenu");
         }
         
     }
